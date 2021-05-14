@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+long long int N=1000001;
+long long int sieve[1000001];
+long long int prefix[1000001];
+void gen_sieve()
+{
+    fill(sieve,sieve+1000001,1);
+    sieve[0]=sieve[1]=0;
+    for(int i=2;i*i<N;i++)
+    {
+        if(sieve[i]==1)
+        {
+            for(int j=i*i;j<N;j+=i)
+            {
+                sieve[j]=0;
+            }
+        }
+    }
+    long long int s=0;
+    for(int i=0;i<N;i++)
+    {
+      if(sieve[i]==0)
+         {
+             s+=0;
+             prefix[i]=s;
+         }
+      else if(sieve[i]==1)
+      {
+          s+=i;
+          prefix[i]=s;
+      }   
+    }
+}
+int main()
+{
+    gen_sieve();
+    int n;
+    cin>>n;
+    while(n--)
+    {
+     long long int sum=0;   
+    long long int l,r;
+    cin>>l>>r;
+     cout<<prefix[r]-prefix[l-1]<<"\n";    
+
+    }
+}
