@@ -1,0 +1,11 @@
+ int gl=1^arr[0];
+      int c=0^arr[0];
+        for(int i=0;i<N;i++)
+        {
+            c=Math.max(arr[i], c^arr[i]);
+            if(c>gl)
+            gl=c;
+            
+        }
+ return gl;
+     
