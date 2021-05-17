@@ -1,0 +1,10 @@
+long long int convertEvenBitToZero(long long int n) {
+            int x = 0;
+        int m = 0;
+     for (int i = n; i; i >>= 2) {
+        if (i & 1)
+        x += (1 << m);
+        m += 2;
+    }
+     return n-x;
+    }
