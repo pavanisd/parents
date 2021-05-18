@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+void print(int arr[], int n)
+{
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
+}
+
+void reverse(int arr[], int ll, int ul)
+{
+	if (ll >= ul)
+			 return;
+     
+    int temp = arr[ll];
+    arr[ll] = arr[ul];
+    arr[ul] = temp;
+   
+		reverse(arr, ll + 1, ul - 1);
+	
+}
+
+int main()
+{
+	int a[] = { 1, 2, 3, 4, 5 };
+	int n = sizeof(a)/sizeof(a[0]);
+
+    	reverse(a, 0, n-1);
+	    print(a, n);
+	return 0;
+}
